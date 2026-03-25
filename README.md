@@ -18,6 +18,8 @@ Nova aims to be able to deal with all four tiers, but primarily focusing on Tier
   - Define what data is available and what data should be relevant.
 - Design a robust SQL database for a large number of rows of data (player coords., view angles, weapon events, utility usage, etc.) per match.
   - A smaller table to house basic metrics for distributions for various ranks and data. (mean and variance/standard deviation)
+
+**Milestones:**
 - [ ] Python demofile parser  
 - [ ] SQL database
 - [ ] Base set of replays for median rank
@@ -41,8 +43,8 @@ Where the $Z$-score determines how many standard deviations $\sigma$ the player'
 - [HARD] Determine how often a player directly looks at an enemy without info (audio/visual cues) through walls
 - [VERY HARD] Determine how often a player "reacts" based on enemy behaviour without info (audio/visual cues)
 
-During this stage it's imperative to properly define certain behaviours correctly and not "simplify" too much as it could drastically change results further in development. Such as:
-*Behaviours to define*:
+During this stage it's imperative to properly define certain behaviours correctly and not "simplify" too much as it could drastically change results further in development.  
+**Milestones:**
 - [ ] A flick
 - [ ] Straightness of a flick
 - [ ] Enemy appearing on screen
@@ -53,14 +55,36 @@ During this stage it's imperative to properly define certain behaviours correctl
 
 ### Stage 3: Main Sequence
 **Goal:** Expand the existing systems for a larger data set including and seperated by ranks (and/or FACEIT level if possible). Larger pools of ranks may be needed for very high and/or very low ranks due to lack of data and players in those ranks.  
-**Approach:** The established systems created in stage 1. and 2. should apply directly without need for modifications, only the parameters defining performance should change.
+**Approach:** The established systems created in stage 1. and 2. should apply directly without need for modifications, only the parameters defining performance should change.  
+**Milestones:**
 - [ ] Obtain a large amount of demofiles for each rank
 - [ ] Parse data from the demofiles
 - [ ] Create statistical models for each rank seperation
 - [ ] **BOTTLENECK:** C++/Rust implementation of existing models in order to parse data effectively
 
 ### Stage 4: Red Giant
+**Goal:** Introduce Machine Learning to identify the complex, subtle anomalies (Tier 3 and Tier 4) that evade rigid heuristic baselines.  
+**Approach:** With the statistical baselines established, we transition from pure math to pattern recognition using Python ML libraries (scikit-learn, PyTorch).
+- Implement Unsupervised Learning (Clustering) to group player profiles and naturally isolate outlier behavior without needing labeled data.
+- Implement Supervised Learning by feeding the model labeled demo files (known clean players vs. known closet cheaters).
+- Train the model to weigh multiple subtle anomalies (e.g., crosshair placement + reaction time + utility usage) to generate a unified confidence score.
+
+**Milestones:**
+  - [ ] Labeled dataset creation (Clean vs. Cheater).
+  - [ ] Train baseline Random Forest or Gradient Boosting model.
+  - [ ] Establish threshold for "Confidence of Cheating."
 
 ### Stage 5: Nova
+##TBD
 
-### Stage 6: Full release (Super Nova)
+### Stage 6: Full Release (Super Nova)
+**Goal:** Automate the pipeline for near real-time processing and continuous learning.  
+**Approach:** Move from a static, localized testing environment to a continuous, automated pipeline.
+- Automate demo fetching: Scripts to automatically pull latest `.dem` files from a specified source or server.
+- Establish a feedback loop: If a human reviewer overrides an ML flag (False Positive), feed that data back into the model to improve accuracy.
+- Performance optimization: Ensure the C++/Rust parsers can handle concurrent demo processing at scale.
+
+**Milestones:**
+  - [ ] Fully automated Demo -> DB -> ML Pipeline.
+  - [ ] Model retraining loop based on human triage feedback.
+  - [ ] Public or private beta testing on live servers.
