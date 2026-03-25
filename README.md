@@ -1,10 +1,10 @@
 # Nova
 Nova, or Project Nova, is an attempt at making a primarily server sided anti-cheat utilising statistical models to determine a player's legitimacy, and eliminating the need for kernel-level anti-cheats. We may split cheaters into three tiers.
 
-- Tier 1 (Blatant cheaters): Spin-botters, 100% Headshot rate etc. A rudamentary surface level anti-cheat should be capable of handling these kinds of cheaters.
-- Tier 2 (Highly suspicious players): High headshot rate, extreme map awareness and extreme game sense. These cheaters are the ones most competent anti-cheats can catch.
-- Tier 3 (Subtle cheats): Simply put, these are players that look like very good players and only seasoned players would be able to determine if they cheat or not. Only great anti-cheats catch these players, typically only kernel-level.
-- Tier 4 (Off-machine subtle cheats): These are the kind of players that look again like very good players, but by using external assitance (on another machine) allows them to bypass any easy detection by kernel-level anticheats, pair that with subtle cheats and these cheaters are practically impossible to catch unless the make a mistake.
+- **Tier 1 (Blatant cheaters):** Spin-botters, 100% Headshot rate etc. A rudamentary surface level anti-cheat should be capable of handling these kinds of cheaters.
+- **Tier 2 (Highly suspicious players):** High headshot rate, extreme map awareness and extreme game sense. These cheaters are the ones most competent anti-cheats can catch.
+- **Tier 3 (Subtle cheats):** Simply put, these are players that look like very good players and only seasoned players would be able to determine if they cheat or not. Only great anti-cheats catch these players, typically only kernel-level.
+- **Tier 4 (Off-machine subtle cheats):** These are the kind of players that look again like very good players, but by using external assitance (on another machine) allows them to bypass any easy detection by kernel-level anticheats, pair that with subtle cheats and these cheaters are practically impossible to catch unless the make a mistake.
 
 Nova aims to be able to deal with all four tiers, but primarily focusing on Tier 2 and 3 cheaters, leaving Tier 1 cheaters to faster acting surface level anti-cheat for swift action. Tier 4 cheaters, while disruptive to gameplay, are a significantly weaker presence and annoyance to a player both due to level of entry of set up and impact on any specific round or match. Thus, these cheaters deal a weaker impact to both the player's experience and the game's health. However, we do wish to catch these players too!
 
